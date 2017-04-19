@@ -1,0 +1,3 @@
+﻿  interface MathService;
+float   doAdd(float  a,   float   b)
+  float doSqrt(    float   number)  ;  

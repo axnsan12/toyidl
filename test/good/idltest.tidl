@@ -1,0 +1,4 @@
+﻿interface IdlTestService
+int getCounter()
+void updateCounter(int addition)
+string getImplementationName()

@@ -1,0 +1,2 @@
+﻿interface SyntaxError2
+void trailingComma(int arg,)

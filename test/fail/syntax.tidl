@@ -1,0 +1,2 @@
+﻿void functionBeforeInterface()
+interface AfterFunction

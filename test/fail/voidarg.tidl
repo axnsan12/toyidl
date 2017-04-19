@@ -1,0 +1,2 @@
+﻿interface VoidArgument
+int failVoidArg(int argGood, void argBad)
