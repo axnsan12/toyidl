@@ -15,7 +15,7 @@ namespace ToyIDL
             {
                 try
                 {
-                    Parser parser = new ToyIDL.Parser(File.ReadAllText(test));
+                    Parser parser = new Parser(File.ReadAllText(test));
                     Console.WriteLine($"{test} parsed successfully");
                     Console.WriteLine("------------------------");
                     Console.WriteLine(parser.Interface);

@@ -18,7 +18,7 @@ namespace ToyIDL
 
         public static readonly IncompleteType VOID = new IncompleteType("void", typeof(void));
 
-        public static readonly IReadOnlyList<IncompleteType> AllTypes = new IncompleteType[] { VOID, CompleteType.INT, CompleteType.FLOAT, CompleteType.STRING };
+        public static readonly IReadOnlyList<IncompleteType> AllTypes = new [] { VOID, CompleteType.INT, CompleteType.FLOAT, CompleteType.STRING };
         public static readonly IReadOnlyDictionary<string, IncompleteType> ByTypeName = AllTypes.ToDictionary(t => t.TypeName);
 
         public override string ToString()
@@ -35,8 +35,8 @@ namespace ToyIDL
         public static readonly CompleteType INT = new CompleteType("int", typeof(int));
         public static readonly CompleteType FLOAT = new CompleteType("float", typeof(float));
 
-        public static new readonly IReadOnlyList<CompleteType> AllTypes = new CompleteType[] { INT, FLOAT, STRING };
-        public static new readonly IReadOnlyDictionary<string, CompleteType> ByTypeName = AllTypes.ToDictionary(t => t.TypeName);
+        public new static readonly IReadOnlyList<CompleteType> AllTypes = new [] { INT, FLOAT, STRING };
+        public new static readonly IReadOnlyDictionary<string, CompleteType> ByTypeName = AllTypes.ToDictionary(t => t.TypeName);
     }
 
     public class ArgumentDefinition

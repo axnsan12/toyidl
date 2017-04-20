@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace ToyIDL
 {
@@ -20,13 +18,14 @@ namespace ToyIDL
          * first non blank line must contain interface declaration - `interface <identifier>;`
          * following lines must be method declaration - `<return_type> <identifier>(<arg_type> <identifier>, ...);`*/
 
-        private static readonly Regex _idlInterfacePattern = new Regex(
+        private static readonly Regex IdlInterfacePattern = new Regex(
             @"^\s*(?<interface>interface)\s+" + // keyword 'interface'
             @"(?<interface_name>[a-zA-Z_][a-zA-Z0-9_]*)" + // interface name
             @"\s*(?:;\s*)?$" // optional (redundant) terminating ;
         );
 
-        private static readonly Regex _idlFunctionPattern = new Regex(
+        // https://regex101.com/r/VfX62T/2
+        private static readonly Regex IdlFunctionPattern = new Regex(
             @"^\s*(?<return_type>void|string|int|float)\s+" +  // function return type - void, string, int, float
             @"(?<function_name>[a-zA-Z_][a-zA-Z0-9_]+)\s*" +  // function name
             @"\(" + // argument list opening paranthesis
@@ -59,7 +58,7 @@ namespace ToyIDL
                     {
                         if (interfaceName == null)
                         {
-                            Match interfaceMatch = _idlInterfacePattern.Match(line);
+                            Match interfaceMatch = IdlInterfacePattern.Match(line);
                             if (!interfaceMatch.Success)
                                 throw new IdlParserException($"Line {lineNo} is not a valid interface declaration");
 
@@ -67,7 +66,7 @@ namespace ToyIDL
                         }
                         else
                         {
-                            Match functionMatch = _idlFunctionPattern.Match(line);
+                            Match functionMatch = IdlFunctionPattern.Match(line);
                             if (!functionMatch.Success)
                                 throw new IdlParserException($"Line {lineNo} is not a valid method declaration");
 
