@@ -72,7 +72,7 @@ namespace ToyIDL2Cs
 
             return javaCode.Replace("{namespace}", namespaceName)
                 .Replace("{interfaceName}", Interface.Name)
-                .Replace("{methodDeclarations}", string.Join($"\n{MethodTabs}", Interface.Methods.Select(MethodFormatter)));
+                .Replace("{methodDeclarations}", string.Join($"{Environment.NewLine}{MethodTabs}", Interface.Methods.Select(MethodFormatter)));
         }
 
         public static void Main(string[] args)

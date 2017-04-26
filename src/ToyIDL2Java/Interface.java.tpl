@@ -1,4 +1,4 @@
-﻿package {packageName};
+package {packageName};
 
 import ToyORB.ToyORBService;
 
